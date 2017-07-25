@@ -6,6 +6,8 @@ import { Button } from 'react-native-elements';
 class MenuScreen extends Component {
   //Whenever this page is shown, navigationOptions will be used to customise the
   //display of the route for MenuScreen.
+  //Class level propeerty do not have access to props, therefore
+  //not able to use this.props.blah eg this.props.navigation.navigate
   static navigationOptions = ({ navigation }) => {
     return {
       headerTitle: 'Menu',
