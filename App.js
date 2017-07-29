@@ -36,6 +36,9 @@ export default class App extends React.Component {
       navigationOptions: {
         tabBarVisible: false
       },
+      //Lazy loading is a design pattern commonly used in computer
+      //programming to defer initialization of an object until the
+      //point at which it is needed. 
       lazy: true
     });
 

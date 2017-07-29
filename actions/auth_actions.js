@@ -33,15 +33,16 @@ export const fbLogin = () => async dispatch => {
 //Assign the return token to result.
 //The result will contain 2 properties; type and token.
 //Type reflect the status of the login.
+//To read up on expo Facebook.
 const doFBLogin = async dispatch => {
   let result = await Facebook.logInWithReadPermissionsAsync('1430652093687071', {
     permission: ['public_profile']
   });
 
-  if (type === 'cancel') {
+  if (result.type === 'cancel') {
     return dispatch({ type: FB_LOGIN_FAIL });
   }
 
-  await AsyncStorage.setItem('fb_token', token);
-  dispatch({ type: FB_LOGIN_SUCCESS, payload: token });
+  await AsyncStorage.setItem('fb_token', result.token);
+  dispatch({ type: FB_LOGIN_SUCCESS, payload: result.token });
 };
