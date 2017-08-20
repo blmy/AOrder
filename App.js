@@ -20,25 +20,58 @@ export default class App extends React.Component {
       auth: { screen: AuthScreen },
       main: {
         screen: TabNavigator({
-          favourite: { screen: FavouriteScreen },
-          explore: { screen: ExploreScreen },
-          myOrder: { screen: MyOrderScreen },
-          subMain: {
-            screen: StackNavigator({
-              menu: { screen: MenuScreen },
-              cart: { screen: CartScreen },
-              payment: { screen: PaymentScreen }
-            })
+          favourite: {
+            screen: FavouriteScreen,
+            navigationOptions: {
+              tabBarLabel: 'Favourite'
+            }
+          },
+          explore: {
+            screen: ExploreScreen,
+            navigationOptions: {
+              tabBarLabel: 'Explore'
+            }
+          },
+          myOrder: {
+            screen: MyOrderScreen,
+            navigationOptions: {
+              tabBarLabel: 'My Order'
+            }
           }
         })
-       }
-    }, {
+      },
+      subMain: {
+        screen: StackNavigator({
+          menu: {
+            screen: MenuScreen,
+            navigationOptions: {
+              title: 'Menu'
+            }
+           },
+          cart: {
+            screen: CartScreen,
+            navigationOptions: {
+              title: 'Cart'
+            }
+           },
+          payment: {
+            screen: PaymentScreen,
+            navigationOptions: {
+              title: 'Payment'
+            }
+           }
+        })
+      }
+    },
+    {
+      //Not showing my MainNavigator tab which consist of
+      //welcome, auth, main and subMain screen.
       navigationOptions: {
         tabBarVisible: false
       },
       //Lazy loading is a design pattern commonly used in computer
       //programming to defer initialization of an object until the
-      //point at which it is needed. 
+      //point at which it is needed.
       lazy: true
     });
 

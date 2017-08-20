@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import { MapView } from 'expo';
 
 class ExploreScreen extends Component {
   render() {
     return (
-      <View>
-        <Text>ExploreScreen</Text>
-        <Text>ExploreScreen</Text>
-        <Text>ExploreScreen</Text>
-        <Text>ExploreScreen</Text>
-        <Text>ExploreScreen</Text>
+      <View style={{ flex: 1 }}>
+        <MapView style={{ flex: 1 }} />
       </View>
     );
   }
